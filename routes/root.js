@@ -9,6 +9,10 @@ module.exports = async function (fastify, opts) {
 
   fastify.get("/", {}, fastify.ecoController.getList);
 
+  fastify.get("/favicon.ico", {}, function (req, reply) {
+    return reply.sendFile("favicon.ico");
+  });
+
   fastify.get(
     "/:code",
     {
