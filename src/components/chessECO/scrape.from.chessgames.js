@@ -16,7 +16,6 @@ async function scrapeFromChessGames() {
   const tableElem = $("tbody").children();
 
   tableElem.each((ind, elem) => {
-    const list = { name: "", moves: "" };
     const txt = [];
     $(elem)
       .children("td")
@@ -24,11 +23,7 @@ async function scrapeFromChessGames() {
         txt.push($(el).text());
       });
     const code = txt[0];
-    const namePlusMoves = txt[1].split("\n");
-    list.name = namePlusMoves[0];
-    list.moves = namePlusMoves[1];
-
-    chessList[code] = list;
+    chessList[code] = txt[1];
   });
 
   return chessList;

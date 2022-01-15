@@ -9,7 +9,7 @@ module.exports = async function (fastify, opts, done) {
 
   async function getMoves(code) {
     const chessList = await scrapeFromChessGames();
-    return chessList[code].moves;
+    return chessList[code];
   }
 
   fastify.decorate("ecoService", { getList, getMoves });
