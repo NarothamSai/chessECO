@@ -1,15 +1,14 @@
 "use strict";
 
-const { scrapeFromChessGames } = require("./scrape.from.chessgames");
+const { scrapeFromChessGames, url } = require("./scrape.from.chessgames");
 
 module.exports = async function (fastify, opts, done) {
-  const chessList = await scrapeFromChessGames();
-
   async function getList() {
-    return chessList;
+    return scrapeFromChessGames();
   }
 
   async function getMoves(code) {
+    const chessList = await scrapeFromChessGames();
     return chessList[code].moves;
   }
 

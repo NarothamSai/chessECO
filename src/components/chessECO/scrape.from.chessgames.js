@@ -30,13 +30,11 @@ async function scrapeFromChessGames() {
 
     chessList[code] = list;
   });
-  //   for (let index = 0; index < 6; index++) {
-  //     console.log(chessList[index]);
-  //   }
 
   return chessList;
 }
-// scrapeFromChessGames();
+
 module.exports = {
   scrapeFromChessGames,
+  url,
 };
